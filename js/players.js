@@ -128,7 +128,7 @@ function prettyDate(date){
 		// the filterList to the url into an "fcol" array.
 		// So a sortList = [[2,0],[3,0]] becomes "&col[2]=0&col[3]=0" in the url
 		// and a filterList = [[2,Blue],[3,13]] becomes "&fcol[2]=Blue&fcol[3]=13" in the url
-		ajaxUrl : '../api/getplayerlist?page={page}&rowsperpage={size}&{filterList:' + filterParamName + '}&{sortList:' + sortParamName + '}',
+		ajaxUrl: '../api/getplayerlist?page={page}&adminuser=admin&admintoken=123456&rowsperpage={size}&{filterList:' + filterParamName + '}&{sortList:' + sortParamName + '}',
 
 		customAjaxUrl: function(table, url) {
 			var address = url.substring (0, url.indexOf ("?"));

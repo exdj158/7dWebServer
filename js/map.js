@@ -280,7 +280,10 @@ function InitMap() {
 	var updatePlayerEvent = function() {
 		playerUpdateCount++;
 		
-		$.getJSON( "../api/getplayerslocation" + ((playerUpdateCount % 15) == 0 ? "?offline=true" : ""))
+		$.getJSON("../api/getplayerslocation" + ((playerUpdateCount % 15) == 0 ? "?offline=true" : ""), {
+		    adminuser: 'admin',
+		    admintoken: 123456,
+		})
 		.done(setPlayerMarkers)
 		.fail(function(jqxhr, textStatus, error) {
 			console.log("Error fetching players list");
@@ -355,7 +358,10 @@ function InitMap() {
 
 	var updateHostileTimeout;
 	var updateHostileEvent = function() {
-		$.getJSON( "../api/gethostilelocation")
+		$.getJSON("../api/gethostilelocation", {
+		    adminuser: 'admin',
+		    admintoken: 123456,
+		})
 		.done(setHostileMarkers)
 		.fail(function(jqxhr, textStatus, error) {
 			console.log("Error fetching hostile list");
@@ -429,7 +435,10 @@ function InitMap() {
 
 	var updateAnimalsTimeout;
 	var updateAnimalsEvent = function() {
-		$.getJSON( "../api/getanimalslocation")
+		$.getJSON("../api/getanimalslocation", {
+		    adminuser: 'admin',
+		    admintoken: 123456,
+		})
 		.done(setAnimalMarkers)
 		.fail(function(jqxhr, textStatus, error) {
 			console.log("Error fetching animals list");
@@ -564,7 +573,10 @@ function InitMap() {
 		}
 	}
 
-	$.getJSON("densitymismatch.json")
+	$.getJSON("densitymismatch.json", {
+	    adminuser: 'admin',
+	    admintoken: 123456,
+	})
 	.done(setDensityMarkers)
 	.fail(function(jqxhr, textStatus, error) {
 		console.log("Error fetching density mismatch list");
@@ -577,7 +589,10 @@ function InitMap() {
 
 
 function StartMapModule () {
-	$.getJSON( "../map/mapinfo.json")
+	$.getJSON("../map/mapinfo.json", {
+	    adminuser: 'admin',
+	    admintoken: 123456,
+	})
 	.done(function(data) {
 		mapinfo.tilesize = data.blockSize;
 		mapinfo.maxzoom = data.maxZoom;

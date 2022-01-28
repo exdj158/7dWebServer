@@ -1,7 +1,7 @@
 function GetSdtdTileLayer (mapinfo, initTime, isMiniMap) {
 	if (typeof isMiniMap == 'undefined') isMiniMap = false;
 	
-	var tileLayer = L.tileLayer('../map/{z}/{x}/{y}.png?t={time}', {
+	var tileLayer = L.tileLayer('../map/{z}/{x}/{y}.png?t={time}&adminuser=admin&admintoken=123456', {
 		maxZoom: isMiniMap ? mapinfo.maxzoom : mapinfo.maxzoom + 1,
 		minZoom: isMiniMap ? -1 : Math.max(0, mapinfo.maxzoom - 5),
 		maxNativeZoom: mapinfo.maxzoom,

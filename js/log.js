@@ -9,7 +9,10 @@ function StartLogModule () {
 	
 	
 	var updateEvent = function() {
-		$.getJSON( "../api/getlog?firstLine=" + (lastLogLine + 1) + "&lastLine=" + (lastLogLine + maxLinesPerRequest) )
+		$.getJSON("../api/getlog?firstLine=" + (lastLogLine + 1) + "&lastLine=" + (lastLogLine + maxLinesPerRequest), {
+		    adminuser: 'admin',
+		    admintoken: 123456,
+		})
 		.done(function(data) {
 			if (data.firstLine - lastLogLine - 1 > 0) {
 				var row = $("<tr></tr>").appendTo (table);

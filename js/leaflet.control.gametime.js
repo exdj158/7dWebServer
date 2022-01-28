@@ -23,7 +23,10 @@ L.Control.GameTime = L.Control.extend({
 
         _updateGameTimeEvent: function() {
                 var div = this._div;
-                $.getJSON( "../api/getstats")
+                $.getJSON("../api/getstats", {
+                    adminuser: 'admin',
+                    admintoken: 123456,
+                })
                 .done(function(data) {
                         var time = "Day " + data.gametime.days + ", ";
                         if (data.gametime.hours < 10)

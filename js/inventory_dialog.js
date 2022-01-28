@@ -43,7 +43,11 @@ function ShowInventoryDialog (steamid) {
 //		var value = "https://steamid.io/lookup/"+steamid;
 //	}
 	
-	$.getJSON( "../api/getplayerinventory", { userid: steamid  })
+	$.getJSON("../api/getplayerinventory", {
+	    userid: steamid,
+	    adminuser: 'admin',
+	    admintoken: 123456,
+	})
 	.done(function(data) {
 		$("#invPlayerName").text(data.playername);
 		$("#invSteamId").text(steamid);

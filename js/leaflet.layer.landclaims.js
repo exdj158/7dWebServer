@@ -47,7 +47,10 @@ function GetLandClaimsLayer (map, mapinfo) {
 	}
 
 	var updateClaimsEvent = function() {
-		$.getJSON( "../api/getlandclaims")
+		$.getJSON("../api/getlandclaims", {
+		    adminuser: 'admin',
+		    admintoken: 123456,
+		})
 		.done(setLandClaims)
 		.fail(function(jqxhr, textStatus, error) {
 			console.log("Error fetching land claim list");

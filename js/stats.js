@@ -48,7 +48,10 @@ function TimeTitle (gametime) {
 
 function StartStatsModule () {
 	var updateGameTimeEvent = function() {
-		$.getJSON( "../api/getstats")
+		$.getJSON("../api/getstats", {
+		    adminuser: 'admin',
+		    admintoken: 123456,
+		})
 		.done(function(data) {
 			var time = FormatServerTime (data.gametime);
 
@@ -70,7 +73,10 @@ function StartStatsModule () {
 
 function StartUIUpdatesModule () {
 	var updateGameTimeEvent = function() {
-		$.getJSON( "../api/getwebuiupdates?latestLine=" + lastLogLine)
+		$.getJSON("../api/getwebuiupdates?latestLine=" + lastLogLine, {
+		    adminuser: 'admin',
+		    admintoken: 123456,
+		})
 		.done(function(data) {
 			var time = FormatServerTime (data.gametime);
 

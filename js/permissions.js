@@ -1,12 +1,15 @@
 var userdata = false;
 
 function InitPermissions () {
-	$.getJSON( "../userstatus")
+	$.getJSON("../userstatus", {
+	    adminuser: 'admin',
+	    admintoken: 123456,
+	})
 	.done(function(data) {
 		userdata = data;
 		
 		var userdataDiv = $("#userstate");
-		if (userdata.loggedin == true) {
+		/* if (userdata.loggedin == true) {
 			var data = userdataDiv.children ("#userstate_loggedin");
 			data.attr ("style", "display: block");
 			data.children ("#username").attr ("href", "http://steamcommunity.com/profiles/" + userdata.username);
@@ -14,7 +17,9 @@ function InitPermissions () {
 		} else {
 			var data = userdataDiv.children ("#userstate_loggedout");
 			data.attr ("style", "display: block");
-		}
+		} */
+        var data = userdataDiv.children("#userstate_loggedout");
+        data.attr("style", "display: block");
 		
 		if (HasPermission ("webapi.getstats")) {
 			$("#serverstats").attr ("style", "display: block");
